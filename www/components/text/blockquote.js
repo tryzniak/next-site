@@ -68,6 +68,6 @@ const Blockquote = ({ children }) => (
       }
     `}</style>
   </blockquote>
-);
+)
 
-export default Blockquote;
+export default Blockquote

@@ -6,6 +6,6 @@ const HR = () => (
       margin: '50px 0'
     }}
   />
-);
+)
 
-export default HR;
+export default HR

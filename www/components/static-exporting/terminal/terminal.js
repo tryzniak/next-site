@@ -1,17 +1,17 @@
-import React from 'react';
-import { Keyframes, Frame } from 'react-keyframes';
+import React from 'react'
+import { Keyframes, Frame } from 'react-keyframes'
 
-import Window from './window';
-import Prompt from './prompt';
-import Caret from './caret';
+import Window from './window'
+import Prompt from './prompt'
+import Caret from './caret'
 
-import { FONT_FAMILY_MONO } from '../../css-config';
+import { FONT_FAMILY_MONO } from '../../css-config'
 
 // simplify frames data and only stores deltas
 function generateFrames(onRender) {
-  const frames = [];
-  const current = [];
-  let duration = 0;
+  const frames = []
+  const current = []
+  let duration = 0
 
   const data = [
     {
@@ -199,18 +199,18 @@ function generateFrames(onRender) {
       // 7: <Prompt />,
       // 8: <Caret />,
     }
-  ];
+  ]
 
-  let showResult;
+  let showResult
 
   for (let i = 0; i < data.length; ++i) {
     for (const line in data[i]) {
       if (line === 'duration') {
-        duration = data[i][line];
+        duration = data[i][line]
       } else if (line === 'showResult') {
-        showResult = true;
+        showResult = true
       } else {
-        current[line] = data[i][line];
+        current[line] = data[i][line]
       }
     }
 
@@ -218,22 +218,29 @@ function generateFrames(onRender) {
       <Frame duration={duration} key={i} onRender={showResult && onRender}>
         {[...current]}
       </Frame>
-    );
+    )
   }
 
-  return frames;
+  return frames
 }
 
 export default class Console extends React.PureComponent {
   render() {
-    const { running, showResult } = this.props;
+    const { running, showResult } = this.props
 
-    const classes = ['console'];
+    const classes = ['console']
 
     return (
-      <Window title={null} height={275} mobileHeight={275} backgroundColor="black">
+      <Window
+        title={null}
+        height={275}
+        mobileHeight={275}
+        backgroundColor="black"
+      >
         <div className={classes.join(' ')}>
-          {running && <Keyframes component="pre">{generateFrames(showResult)}</Keyframes>}
+          {running && (
+            <Keyframes component="pre">{generateFrames(showResult)}</Keyframes>
+          )}
           <style>
             {`
             pre {
@@ -273,6 +280,6 @@ export default class Console extends React.PureComponent {
           `}
         </style>
       </Window>
-    );
+    )
   }
 }

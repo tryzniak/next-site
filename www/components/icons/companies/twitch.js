@@ -5,4 +5,4 @@ export default () => (
       fill="#000"
     />
   </svg>
-);
+)

@@ -1,15 +1,15 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
-import Page from '../components/page';
-import Header from '../components/header';
-import Footer from '../components/footer';
-import Navbar from '../components/navbar';
-import Container from '../components/container';
-import SectionHeader from '../components/section-header';
-import Button from '../components/button';
-import Popover from '../components/popover';
-import Tabs from '../components/tabs';
-import TabButton from '../components/home/tab-button';
+import Page from '../components/page'
+import Header from '../components/header'
+import Footer from '../components/footer'
+import Navbar from '../components/navbar'
+import Container from '../components/container'
+import SectionHeader from '../components/section-header'
+import Button from '../components/button'
+import Popover from '../components/popover'
+import Tabs from '../components/tabs'
+import TabButton from '../components/home/tab-button'
 
 const ComponentTitle = ({ children }) => (
   <h3 className="fw8 f4">
@@ -18,7 +18,7 @@ const ComponentTitle = ({ children }) => (
       margin: 3rem 0 2rem;
     `}</style>
   </h3>
-);
+)
 
 const ComponentModal = ({ title, children }) => (
   <div>
@@ -35,7 +35,7 @@ const ComponentModal = ({ title, children }) => (
     <h4 className="f6">{title}</h4>
     {children}
   </div>
-);
+)
 
 const PopoverText = () => (
   <div style={{ whiteSpace: 'nowrap' }}>
@@ -43,7 +43,7 @@ const PopoverText = () => (
     <br />
     when there is no room to display.
   </div>
-);
+)
 
 export default () => (
   <Page title="Design | Next.js">
@@ -210,4 +210,4 @@ export default () => (
     </Container>
     <Footer />
   </Page>
-);
+)

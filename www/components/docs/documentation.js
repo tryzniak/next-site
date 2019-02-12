@@ -1,113 +1,113 @@
-import { Component } from 'react';
-import Router from 'next/router';
-import { format, parse } from 'url';
-import Head from './head';
-import Sidebar from './sidebar';
-import { H1, H2, H3, H4, H5 } from './text/headings';
-import { Blockquote } from './text/quotes';
-import { InlineCode, Code } from './text/code';
-import { GenericLink } from './text/link';
-import Heading from './heading';
+import { Component } from 'react'
+import Router from 'next/router'
+import { format, parse } from 'url'
+import Head from './head'
+import Sidebar from './sidebar'
+import { H1, H2, H3, H4, H5 } from './text/headings'
+import { Blockquote } from './text/quotes'
+import { InlineCode, Code } from './text/code'
+import { GenericLink } from './text/link'
+import Heading from './heading'
 
-import { MediaQueryConsumer } from '../media-query';
+import { MediaQueryConsumer } from '../media-query'
 
 if (typeof window !== 'undefined') {
-  require('intersection-observer');
+  require('intersection-observer')
 }
 
 function changeHash(hash) {
-  const { pathname, query } = Router;
+  const { pathname, query } = Router
 
-  const parsedUrl = parse(location.href);
-  parsedUrl.hash = hash;
+  const parsedUrl = parse(location.href)
+  parsedUrl.hash = hash
 
   Router.router.changeState(
     'replaceState',
     format({ pathname, query }),
     format(parsedUrl)
-  );
+  )
 }
 
 export default class Documentation extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       currentSelection: null
-    };
-    this.contentNode = null;
-    this.observer = null;
-    this.preventScrollObserverUpdate = false;
+    }
+    this.contentNode = null
+    this.observer = null
+    this.preventScrollObserverUpdate = false
 
-    this.updateSelected = this.updateSelected.bind(this);
-    this.onHashChange = this.onHashChange.bind(this);
+    this.updateSelected = this.updateSelected.bind(this)
+    this.onHashChange = this.onHashChange.bind(this)
   }
 
   componentDidMount() {
-    window.addEventListener('hashchange', this.onHashChange);
+    window.addEventListener('hashchange', this.onHashChange)
 
-    const nodes = [...this.contentNode.querySelectorAll('h3 [id], h4 [id]')];
-    const intersectingTargets = new Set();
+    const nodes = [...this.contentNode.querySelectorAll('h3 [id], h4 [id]')]
+    const intersectingTargets = new Set()
 
     this.observer = new IntersectionObserver(entries => {
       for (const { isIntersecting, target } of entries) {
         if (isIntersecting) {
-          intersectingTargets.add(target);
+          intersectingTargets.add(target)
         } else {
-          intersectingTargets.delete(target);
+          intersectingTargets.delete(target)
         }
       }
 
       if (this.preventScrollObserverUpdate) {
-        this.preventScrollObserverUpdate = false;
-        return;
+        this.preventScrollObserverUpdate = false
+        return
       }
-      if (!intersectingTargets.size) return;
+      if (!intersectingTargets.size) return
 
-      let minIndex = Infinity;
-      let id = '';
+      let minIndex = Infinity
+      let id = ''
 
       for (let target of intersectingTargets.values()) {
-        let index = nodes.indexOf(target);
+        let index = nodes.indexOf(target)
         if (index < minIndex) {
-          minIndex = index;
-          id = target.id;
+          minIndex = index
+          id = target.id
         }
       }
 
-      const hash = '#' + (id || '');
-      this.updateSelected(hash);
-    });
+      const hash = '#' + (id || '')
+      this.updateSelected(hash)
+    })
 
     for (const node of nodes) {
-      this.observer.observe(node);
+      this.observer.observe(node)
     }
 
-    const { hash } = window.location;
-    this.setState({ currentSelection: hash });
+    const { hash } = window.location
+    this.setState({ currentSelection: hash })
   }
 
   componentWillUnmount() {
-    window.removeEventListener('hashchange', this.onHashChange);
+    window.removeEventListener('hashchange', this.onHashChange)
 
-    this.observer.disconnect();
-    this.observer = null;
+    this.observer.disconnect()
+    this.observer = null
   }
 
   updateSelected = hash => {
     if (this.state.currentSelection !== hash) {
       this.setState({
         currentSelection: hash
-      });
+      })
     }
-  };
+  }
 
   onHashChange() {
-    this.preventScrollObserverUpdate = true;
-    this.updateSelected(window.location.hash);
+    this.preventScrollObserverUpdate = true
+    this.updateSelected(window.location.hash)
   }
 
   render() {
-    const { headings } = this.props;
+    const { headings } = this.props
 
     return (
       <MediaQueryConsumer>
@@ -167,10 +167,10 @@ export default class Documentation extends Component {
                 `}</style>
               </div>
             </>
-          );
+          )
         }}
       </MediaQueryConsumer>
-    );
+    )
   }
 }
 
@@ -185,7 +185,7 @@ const DocH2 = ({ children, id }) => (
       }
     `}</style>
   </div>
-);
+)
 
 const DocH3 = ({ children, id }) => (
   <div>
@@ -198,7 +198,7 @@ const DocH3 = ({ children, id }) => (
       }
     `}</style>
   </div>
-);
+)
 
 const DocH4 = ({ children, id }) => (
   <div>
@@ -206,7 +206,7 @@ const DocH4 = ({ children, id }) => (
       <H4>{children}</H4>
     </Heading>
   </div>
-);
+)
 
 const Details = ({ children }) => {
   return (
@@ -219,8 +219,8 @@ const Details = ({ children }) => {
         overflow: hidden;
       `}</style>
     </details>
-  );
-};
+  )
+}
 
 const Summary = ({ children }) => {
   return (
@@ -238,8 +238,8 @@ const Summary = ({ children }) => {
         }
       `}</style>
     </summary>
-  );
-};
+  )
+}
 
 export const components = {
   h1: H1,
@@ -253,4 +253,4 @@ export const components = {
   a: GenericLink,
   details: Details,
   summary: Summary
-};
+}

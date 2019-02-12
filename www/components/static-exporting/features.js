@@ -1,6 +1,6 @@
-import Container from '../container';
-import SectionHeader from '../section-header';
-import Checkmark from '../icons/checkmark';
+import Container from '../container'
+import SectionHeader from '../section-header'
+import Checkmark from '../icons/checkmark'
 
 export default () => (
   <Container padding>
@@ -92,4 +92,4 @@ export default () => (
       `}
     </style>
   </Container>
-);
+)

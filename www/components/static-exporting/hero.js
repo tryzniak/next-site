@@ -1,5 +1,5 @@
-import Container from '../container';
-import Button from '../button';
+import Container from '../container'
+import Button from '../button'
 
 export default () => (
   <Container wide padding center dotBackground>
@@ -9,8 +9,8 @@ export default () => (
 
     <div className="content">
       <p>
-        Leverage the speed and simplicity of static sites<br /> with the full
-        power of <b>Next.js</b>
+        Leverage the speed and simplicity of static sites
+        <br /> with the full power of <b>Next.js</b>
       </p>
     </div>
 
@@ -59,4 +59,4 @@ export default () => (
       `}
     </style>
   </Container>
-);
+)

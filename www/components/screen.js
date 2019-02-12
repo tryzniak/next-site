@@ -1,4 +1,4 @@
-import withPure from './hoc/pure';
+import withPure from './hoc/pure'
 
 export default withPure(({ id, offset, children }) => (
   <div
@@ -17,4 +17,4 @@ export default withPure(({ id, offset, children }) => (
     </style>
     {children}
   </div>
-));
+))

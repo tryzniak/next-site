@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
 
-import IObserver from './intersection-observer';
+import IObserver from './intersection-observer'
 
 // This component might look a little complex
 // because one could argue that keeping the aspect ratio
@@ -16,23 +16,23 @@ import IObserver from './intersection-observer';
 class Image extends Component {
   static defaultProps = {
     lazy: true
-  };
+  }
 
   static propTypes = {
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     lazy: PropTypes.bool
-  };
+  }
 
   state = {
     src: !this.props.lazy ? this.props.videoSrc || this.props.src : undefined
-  };
+  }
 
   handleIntersect = entry => {
     if (entry.isIntersecting) {
-      this.setState({ src: this.props.videoSrc || this.props.src });
+      this.setState({ src: this.props.videoSrc || this.props.src })
     }
-  };
+  }
 
   render() {
     const {
@@ -48,9 +48,9 @@ class Image extends Component {
       float,
       lazy,
       ...rest
-    } = this.props;
+    } = this.props
 
-    const aspectRatio = `${String((height / width) * 100)}%`;
+    const aspectRatio = `${String((height / width) * 100)}%`
 
     return (
       <IObserver
@@ -130,10 +130,10 @@ class Image extends Component {
           </style>
         </figure>
       </IObserver>
-    );
+    )
   }
 }
 
-export const Video = props => <Image {...props} video />;
+export const Video = props => <Image {...props} video />
 
-export default Image;
+export default Image

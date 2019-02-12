@@ -18,4 +18,4 @@ export default ({ color = '#fff' } = {}) => (
       <path d="M10.5 20.5L.6 10.6" />
     </g>
   </svg>
-);
+)

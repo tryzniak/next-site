@@ -1,8 +1,8 @@
 import Code from './code'
 import withFrame from './frame'
 
-const IndexFile = () => <Code>{
-`import Link from 'next/link'
+const IndexFile = () => (
+  <Code>{`import Link from 'next/link'
 
 export default () => (
   <div>
@@ -11,9 +11,10 @@ export default () => (
   </div>
 )
 `}</Code>
+)
 
-const AboutFile = () => <Code>{
-`import Link from 'next/link'
+const AboutFile = () => (
+  <Code>{`import Link from 'next/link'
 
 export default () => (
   <div>
@@ -22,9 +23,10 @@ export default () => (
   </div>
 )
 `}</Code>
+)
 
-const PackageFile = () => <Code lang='json'>{
-`{
+const PackageFile = () => (
+  <Code lang="json">{`{
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -38,20 +40,21 @@ const PackageFile = () => <Code lang='json'>{
   }
 }
 `}</Code>
+)
 
-const IndexPage = withFrame(({A}) => 
+const IndexPage = withFrame(({ A }) => (
   <div>
     <h1>Hello Next.js 👋</h1>
-    <A tab='http://localhost:3000/about'>About</A>
+    <A tab="http://localhost:3000/about">About</A>
   </div>
-)
+))
 
-const AboutPage = withFrame(({A}) => 
+const AboutPage = withFrame(({ A }) => (
   <div>
     <p>This is the about page</p>
-    <A tab='http://localhost:3000'>Go home</A>
+    <A tab="http://localhost:3000">Go home</A>
   </div>
-)
+))
 
 export default {
   type: ['editor', 'browser'],
@@ -62,17 +65,25 @@ export default {
       'pages/index.js': IndexFile,
       'pages/about.js': AboutFile,
       'package.json': PackageFile
-    },
+    }
   },
   browser2: {
     browserTabs: ['http://localhost:3000', 'http://localhost:3000/about'],
     browserMapping: {
       'http://localhost:3000': IndexPage,
       'http://localhost:3000/about': AboutPage
-    },
+    }
   },
-  note: <>
-    <p>Next.js will serve each file in <code>/pages</code> under a pathname matching the filename.</p>
-    <p>For example, <code>/pages/about.js</code> is served at <code>site.com/about</code>.</p>
-  </>
+  note: (
+    <>
+      <p>
+        Next.js will serve each file in <code>/pages</code> under a pathname
+        matching the filename.
+      </p>
+      <p>
+        For example, <code>/pages/about.js</code> is served at{' '}
+        <code>site.com/about</code>.
+      </p>
+    </>
+  )
 }

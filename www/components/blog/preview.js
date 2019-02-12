@@ -1,11 +1,11 @@
-import Link from 'next/link';
-import classNames from 'classnames';
-import formatDate from 'date-fns/format';
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
+import Link from 'next/link'
+import classNames from 'classnames'
+import formatDate from 'date-fns/format'
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
 
-import Container from '../container';
-import Button from '../button';
-import ArrowRightLong from '../icons/arrow-right-long';
+import Container from '../container'
+import Button from '../button'
+import ArrowRightLong from '../icons/arrow-right-long'
 
 export default ({
   type,
@@ -116,5 +116,5 @@ export default ({
         </div>
       </Container>
     </div>
-  );
-};
+  )
+}

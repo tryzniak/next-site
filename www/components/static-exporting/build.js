@@ -1,44 +1,46 @@
-import React from 'react';
+import React from 'react'
 
-import Container from '../container';
-import Checkmark from '../icons/checkmark';
+import Container from '../container'
+import Checkmark from '../icons/checkmark'
 
-import Animation from './terminal/animation';
-import Result from './svg/ServerlessResult';
+import Animation from './terminal/animation'
+import Result from './svg/ServerlessResult'
 
 export default class Build extends React.PureComponent {
   state = {
     demoInView: true
-  };
+  }
 
-  demo = React.createRef();
+  demo = React.createRef()
 
   componentDidMount() {
-    const { scrollY } = window;
-    const demoInView = scrollY <= this.demo.current.offsetTop + this.demo.current.clientHeight;
+    const { scrollY } = window
+    const demoInView =
+      scrollY <= this.demo.current.offsetTop + this.demo.current.clientHeight
     if (demoInView !== this.state.demoInView) {
-      this.setState({ demoInView });
+      this.setState({ demoInView })
     }
-    this.scrollspy();
+    this.scrollspy()
   }
 
   componentWillUnmount() {
-    window.cancelAnimationFrame(this.scrollSpyID);
+    window.cancelAnimationFrame(this.scrollSpyID)
   }
 
   scrollspy = () => {
     this.scrollSpyID = requestAnimationFrame(() => {
-      const { scrollY } = window;
+      const { scrollY } = window
 
       if (scrollY === this.lastFrameScroll) {
-        this.lastFrameScroll = scrollY;
-        return this.scrollspy();
+        this.lastFrameScroll = scrollY
+        return this.scrollspy()
       }
 
-      this.lastFrameScroll = scrollY;
+      this.lastFrameScroll = scrollY
 
       // Section animation triggers
-      const demoInView = scrollY <= this.demo.current.offsetTop + this.demo.current.clientHeight;
+      const demoInView =
+        scrollY <= this.demo.current.offsetTop + this.demo.current.clientHeight
 
       if (demoInView !== this.state.demoInView) {
         this.setState(
@@ -46,12 +48,12 @@ export default class Build extends React.PureComponent {
             demoInView
           },
           this.scrollspy
-        );
+        )
       } else {
-        this.scrollspy();
+        this.scrollspy()
       }
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -134,6 +136,6 @@ export default class Build extends React.PureComponent {
           `}
         </style>
       </Container>
-    );
+    )
   }
 }

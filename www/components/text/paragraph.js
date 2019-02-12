@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 export const P = ({ className = '', children, large }, { darkBg } = {}) => (
   <p className={className + (darkBg ? ' inverted' : '')}>
@@ -15,11 +15,11 @@ export const P = ({ className = '', children, large }, { darkBg } = {}) => (
       }
     `}</style>
   </p>
-);
+)
 
 P.contextTypes = {
   darkBg: PropTypes.bool
-};
+}
 
 export const PDIV = ({ children }) => (
   <div>
@@ -32,7 +32,7 @@ export const PDIV = ({ children }) => (
       }
     `}</style>
   </div>
-);
+)
 
 const B = ({ children }) => (
   <span>
@@ -43,7 +43,7 @@ const B = ({ children }) => (
       }
     `}</style>
   </span>
-);
+)
 
 export const HR = () => (
   <div>
@@ -55,7 +55,7 @@ export const HR = () => (
       }
     `}</style>
   </div>
-);
+)
 
 export const Quote = ({ children }, { darkBg } = {}) => (
   <blockquote className={darkBg ? 'dark' : ''}>
@@ -77,10 +77,10 @@ export const Quote = ({ children }, { darkBg } = {}) => (
       }
     `}</style>
   </blockquote>
-);
+)
 
 Quote.contextTypes = {
   darkBg: PropTypes.bool
-};
+}
 
-P.B = B;
+P.B = B

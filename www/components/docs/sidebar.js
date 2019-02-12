@@ -1,82 +1,82 @@
-import { PureComponent, Component } from 'react';
-import _scrollIntoViewIfNeeded from 'scroll-into-view-if-needed';
-import GithubSlugger from 'github-slugger';
+import { PureComponent, Component } from 'react'
+import _scrollIntoViewIfNeeded from 'scroll-into-view-if-needed'
+import GithubSlugger from 'github-slugger'
 
-import Header from '../header';
-import Container from '../container';
-import ArrowRight from '../icons/arrow-right';
+import Header from '../header'
+import Container from '../container'
+import ArrowRight from '../icons/arrow-right'
 
 function scrollIntoViewIfNeeded(elem) {
-  const finalElement = findClosestScrollableElement(elem);
+  const finalElement = findClosestScrollableElement(elem)
   return _scrollIntoViewIfNeeded(elem.parentElement, {
     behavior: 'smooth',
     scrollMode: 'if-needed',
     block: 'center',
     boundary: finalElement
-  });
+  })
 }
 
 function findClosestScrollableElement(_elem) {
-  const { parentNode } = _elem;
-  if (!parentNode) return null;
+  const { parentNode } = _elem
+  if (!parentNode) return null
 
   if (
     parentNode.scrollHeight > parentNode.clientHeight ||
     parentNode.scrollWidth > parentNode.clientWidth
   ) {
-    return parentNode;
+    return parentNode
   } else {
-    return findClosestScrollableElement(parentNode);
+    return findClosestScrollableElement(parentNode)
   }
 }
 
 function flattenHeadings(headings) {
   if (!Array.isArray(headings)) {
-    return headings;
+    return headings
   }
-  return [].concat(...headings.map(flattenHeadings));
+  return [].concat(...headings.map(flattenHeadings))
 }
 
 function slugifyHeadings(headings) {
-  const slugger = new GithubSlugger();
+  const slugger = new GithubSlugger()
 
   return headings.map(heading => {
-    heading.id = slugger.slug(heading.title);
-    return heading;
-  });
+    heading.id = slugger.slug(heading.title)
+    return heading
+  })
 }
 
 export class SidebarNavItem extends Component {
   constructor() {
-    super();
+    super()
 
-    this.activeNavItem = null;
+    this.activeNavItem = null
   }
 
   componentDidMount() {
-    this.scrollIntoViewIfNeeded();
+    this.scrollIntoViewIfNeeded()
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.props.isActive !== nextProps.isActive;
+    return this.props.isActive !== nextProps.isActive
   }
 
   componentDidUpdate() {
-    this.scrollIntoViewIfNeeded();
+    this.scrollIntoViewIfNeeded()
   }
 
   scrollIntoViewIfNeeded() {
     if (this.activeNavItem && this.props.isActive) {
       if (this.activeNavItem.scrollIntoViewIfNeeded) {
-        this.activeNavItem.scrollIntoViewIfNeeded();
+        this.activeNavItem.scrollIntoViewIfNeeded()
       } else {
-        scrollIntoViewIfNeeded(this.activeNavItem);
+        scrollIntoViewIfNeeded(this.activeNavItem)
       }
     }
   }
 
   render() {
-    const { item, updateSelected, isActive } = this.props;
+    const { item, updateSelected, isActive } = this.props
 
     if (item.level === 2) {
       return (
@@ -104,23 +104,23 @@ export class SidebarNavItem extends Component {
             }
           `}</style>
         </li>
-      );
+      )
     }
 
-    let listStyle = '';
+    let listStyle = ''
     switch (item.level) {
       case 3:
-        listStyle = 'padding: 5px 3px 5px 0; font-size: 15px;';
-        break;
+        listStyle = 'padding: 5px 3px 5px 0; font-size: 15px;'
+        break
       case 4:
-        listStyle = 'padding: 3px 3px 3px 15px; font-size: 14px; color: #666;';
-        break;
+        listStyle = 'padding: 3px 3px 3px 15px; font-size: 14px; color: #666;'
+        break
       case 5:
-        listStyle = 'padding: 2px 3px 2px 30px; font-size: 13px; color: #666;';
-        break;
+        listStyle = 'padding: 2px 3px 2px 30px; font-size: 13px; color: #666;'
+        break
       case 6:
-        listStyle = 'padding: 2px 3px 2px 45px; font-size: 13px; color: #666;';
-        break;
+        listStyle = 'padding: 2px 3px 2px 45px; font-size: 13px; color: #666;'
+        break
     }
 
     return (
@@ -153,13 +153,13 @@ export class SidebarNavItem extends Component {
           }
         `}</style>
       </li>
-    );
+    )
   }
 }
 
 export class SidebarNavItemContainer extends Component {
   render() {
-    const { headings, currentSelection, updateSelected, isMobile } = this.props;
+    const { headings, currentSelection, updateSelected, isMobile } = this.props
 
     if (Array.isArray(headings)) {
       return (
@@ -179,7 +179,7 @@ export class SidebarNavItemContainer extends Component {
             }
           `}</style>
         </ul>
-      );
+      )
     }
 
     return (
@@ -189,31 +189,31 @@ export class SidebarNavItemContainer extends Component {
         isActive={currentSelection === '#' + headings.id}
         isMobile={isMobile}
       />
-    );
+    )
   }
 }
 
 export default class Sidebar extends PureComponent {
   state = {
     dropdown: false
-  };
+  }
   updateSelected = () => {
-    this.setState({ dropdown: false });
-  };
+    this.setState({ dropdown: false })
+  }
   toggleDropdown = () => {
-    this.setState({ dropdown: !this.state.dropdown });
-  };
+    this.setState({ dropdown: !this.state.dropdown })
+  }
   render() {
-    let { isMobile, headings, currentSelection } = this.props;
-    const { dropdown } = this.state;
+    let { isMobile, headings, currentSelection } = this.props
+    const { dropdown } = this.state
 
-    let flatHeadings = slugifyHeadings(flattenHeadings(headings));
+    let flatHeadings = slugifyHeadings(flattenHeadings(headings))
 
     if (isMobile) {
       const currentItem = flatHeadings.filter(
         item => currentSelection === '#' + item.id
-      )[0];
-      const currentTitle = currentItem ? currentItem.title : '';
+      )[0]
+      const currentTitle = currentItem ? currentItem.title : ''
 
       return (
         <>
@@ -300,7 +300,7 @@ export default class Sidebar extends PureComponent {
             }
           `}</style>
         </>
-      );
+      )
     }
 
     return (
@@ -340,6 +340,6 @@ export default class Sidebar extends PureComponent {
           }
         `}</style>
       </div>
-    );
+    )
   }
 }

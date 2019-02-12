@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default class Caret extends React.PureComponent {
   render() {
@@ -16,6 +16,6 @@ export default class Caret extends React.PureComponent {
           `}
         </style>
       </span>
-    );
+    )
   }
 }

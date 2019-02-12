@@ -1,4 +1,4 @@
-import { FONT_FAMILY_MONO } from '../css-config';
+import { FONT_FAMILY_MONO } from '../css-config'
 
 const Caption = ({ children }) => (
   <p>
@@ -14,7 +14,7 @@ const Caption = ({ children }) => (
       `}
     </style>
   </p>
-);
+)
 
 const Code = ({ children }) => (
   <code>
@@ -36,8 +36,8 @@ const Code = ({ children }) => (
       `}
     </style>
   </code>
-);
+)
 
-Caption.Code = Code;
+Caption.Code = Code
 
-export default Caption;
+export default Caption

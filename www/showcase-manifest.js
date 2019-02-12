@@ -5,7 +5,7 @@ const categories = [
   'E-commerce',
   'Creative',
   'Entertainment'
-];
+]
 const categoriesShort = [
   'All',
   'Finance',
@@ -13,7 +13,7 @@ const categoriesShort = [
   'E-comm',
   'Creative',
   'Entertainment'
-];
+]
 
 const frontSortOrder = [
   'ticketmaster',
@@ -23,7 +23,7 @@ const frontSortOrder = [
   'nike',
   'netflix-jobs',
   'mozilla-vr'
-];
+]
 
 const sortOrder = [
   'marvel',
@@ -102,7 +102,7 @@ const sortOrder = [
   'supervielle',
   'theculturetrip',
   'carbon'
-];
+]
 
 const mapping = {
   theculturetrip: {
@@ -796,7 +796,7 @@ const mapping = {
     internalUrl: 'carbon',
     tags: ['dev', 'creative']
   }
-};
+}
 
 module.exports = {
   categories,
@@ -804,4 +804,4 @@ module.exports = {
   sortOrder,
   frontSortOrder,
   mapping
-};
+}

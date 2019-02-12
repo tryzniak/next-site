@@ -1,20 +1,20 @@
-import Head from 'next/head';
+import Head from 'next/head'
 
-import Page from '../../components/page';
-import Header from '../../components/header';
-import Navbar from '../../components/navbar';
-import Footer from '../../components/footer';
-import { MediaQueryConsumer } from '../../components/media-query';
-import SocialMeta from '../../components/social-meta';
+import Page from '../../components/page'
+import Header from '../../components/header'
+import Navbar from '../../components/navbar'
+import Footer from '../../components/footer'
+import { MediaQueryConsumer } from '../../components/media-query'
+import SocialMeta from '../../components/social-meta'
 
-import Hero from '../../components/static-exporting/hero';
-import Build from '../../components/static-exporting/build';
-import UseCases from '../../components/static-exporting/use-cases';
-import Links from '../../components/static-exporting/links';
-import Learn from '../../components/static-exporting/learn';
-import Features from '../../components/static-exporting/features';
-import Docs from '../../components/static-exporting/docs';
-import Customers from '../../components/static-exporting/customers';
+import Hero from '../../components/static-exporting/hero'
+import Build from '../../components/static-exporting/build'
+import UseCases from '../../components/static-exporting/use-cases'
+import Links from '../../components/static-exporting/links'
+import Learn from '../../components/static-exporting/learn'
+import Features from '../../components/static-exporting/features'
+import Docs from '../../components/static-exporting/docs'
+import Customers from '../../components/static-exporting/customers'
 
 export default () => (
   <Page>
@@ -37,7 +37,12 @@ export default () => (
     />
     <MediaQueryConsumer>
       {({ isMobile }) => (
-        <Header height={64 + (isMobile ? 32 : 0)} shadow dotBackground active={64}>
+        <Header
+          height={64 + (isMobile ? 32 : 0)}
+          shadow
+          dotBackground
+          active={64}
+        >
           <Navbar />
         </Header>
       )}
@@ -62,4 +67,4 @@ export default () => (
       `}
     </style>
   </Page>
-);
+)

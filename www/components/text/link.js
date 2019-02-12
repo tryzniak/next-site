@@ -1,6 +1,6 @@
 // Packages
-import NativeLink from 'next/link';
-import PropTypes from 'prop-types';
+import NativeLink from 'next/link'
+import PropTypes from 'prop-types'
 
 export const GenericLink = props => {
   if (
@@ -8,15 +8,15 @@ export const GenericLink = props => {
     !props.href.startsWith('/docs') &&
     !props.href.startsWith('/api')
   ) {
-    return <InternalLink {...props} />;
+    return <InternalLink {...props} />
   }
 
   if (props.href.includes('@') || props.href.startsWith('#')) {
-    return <AnchorLink {...props} />;
+    return <AnchorLink {...props} />
   }
 
-  return <ExternalLink {...props} />;
-};
+  return <ExternalLink {...props} />
+}
 
 export const InternalLink = (
   { href, as, children, error = false, underlineOnHover = true },
@@ -68,13 +68,13 @@ export const InternalLink = (
       `}</style>
     </a>
   </NativeLink>
-);
+)
 
 InternalLink.contextTypes = {
   darkBg: PropTypes.bool,
   disabled: PropTypes.bool,
   inError: PropTypes.bool
-};
+}
 
 export const AnchorLink = ({
   href,
@@ -104,7 +104,7 @@ export const AnchorLink = ({
       `}
     </style>
   </a>
-);
+)
 
 export const ExternalLink = ({ href, children }, { disabled, darkBg } = {}) => (
   <a
@@ -141,9 +141,9 @@ export const ExternalLink = ({ href, children }, { disabled, darkBg } = {}) => (
       `}
     </style>
   </a>
-);
+)
 
 ExternalLink.contextTypes = {
   darkBg: PropTypes.bool,
   disabled: PropTypes.bool
-};
+}

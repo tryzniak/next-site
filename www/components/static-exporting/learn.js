@@ -1,7 +1,7 @@
-import Container from '../container';
-import Button from '../button';
+import Container from '../container'
+import Button from '../button'
 
-import BoxOfFeatures from './svg/BoxOfFeatures';
+import BoxOfFeatures from './svg/BoxOfFeatures'
 
 export default () => (
   <Container padding wide gray>
@@ -81,4 +81,4 @@ export default () => (
       }
     `}</style>
   </Container>
-);
+)

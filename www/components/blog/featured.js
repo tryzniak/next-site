@@ -1,7 +1,7 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
-import Container from '../container';
-import Button from '../button';
+import Container from '../container'
+import Button from '../button'
 
 export default ({ type, link, title, prefetch, featuredImage, subtitle }) => (
   <div className="case-study">
@@ -69,4 +69,4 @@ export default ({ type, link, title, prefetch, featuredImage, subtitle }) => (
       </div>
     </Container>
   </div>
-);
+)

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default class Prompt extends React.PureComponent {
   render() {
@@ -16,6 +16,6 @@ export default class Prompt extends React.PureComponent {
           `}
         </style>
       </span>
-    );
+    )
   }
 }

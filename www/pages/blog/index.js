@@ -1,31 +1,31 @@
-import Header from '../../components/header';
-import Footer from '../../components/footer';
-import Navbar from '../../components/navbar';
-import Screen from '../../components/screen';
-import Page from '../../components/page';
-import { MediaQueryConsumer } from '../../components/media-query';
+import Header from '../../components/header'
+import Footer from '../../components/footer'
+import Navbar from '../../components/navbar'
+import Screen from '../../components/screen'
+import Page from '../../components/page'
+import { MediaQueryConsumer } from '../../components/media-query'
 
-import Container from '../../components/container';
-import SectionHeader from '../../components/section-header';
+import Container from '../../components/container'
+import SectionHeader from '../../components/section-header'
 
-import Featured from '../../components/blog/featured';
-import Preview from '../../components/blog/preview';
-import { components } from '../../components/blog/post-components';
+import Featured from '../../components/blog/featured'
+import Preview from '../../components/blog/preview'
+import { components } from '../../components/blog/post-components'
 
 function importAll(r) {
-  return r.keys().map(r);
+  return r.keys().map(r)
 }
 
 const previewItems = importAll(
   require.context('../../blog', false, /\-preview\.mdx$/)
-);
+)
 
 function dateSortDesc(a, b) {
-  const date1 = new Date(a.meta.date);
-  const date2 = new Date(b.meta.date);
-  if (date1 > date2) return -1;
-  if (date1 < date2) return 1;
-  return 0;
+  const date1 = new Date(a.meta.date)
+  const date2 = new Date(b.meta.date)
+  if (date1 > date2) return -1
+  if (date1 < date2) return 1
+  return 0
 }
 
 const items = previewItems
@@ -40,8 +40,8 @@ const items = previewItems
       >
         <Component components={components} />
       </Preview>
-    );
-  });
+    )
+  })
 
 export default () => (
   <Page title="Blog | Next.js">
@@ -60,4 +60,4 @@ export default () => (
     </Screen>
     <Footer />
   </Page>
-);
+)

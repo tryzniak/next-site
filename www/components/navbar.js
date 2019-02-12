@@ -1,19 +1,19 @@
-import Link from 'next/link';
-import { withRouter } from 'next/router';
-import classNames from 'classnames';
+import Link from 'next/link'
+import { withRouter } from 'next/router'
+import classNames from 'classnames'
 
-import { MediaQueryConsumer } from './media-query';
-import NextLogo from './logo';
-import Container from './container';
-import Popover from './popover';
+import { MediaQueryConsumer } from './media-query'
+import NextLogo from './logo'
+import Container from './container'
+import Popover from './popover'
 
-import GitHubLogo from './icons/github';
-import SpectrumLogo from './icons/spectrum';
+import GitHubLogo from './icons/github'
+import SpectrumLogo from './icons/spectrum'
 
-import { links } from '../site-manifest';
+import { links } from '../site-manifest'
 
 export default withRouter(({ isMobile, router, hideLogo = false }) => {
-  const { route } = router;
+  const { route } = router
 
   return (
     <MediaQueryConsumer>
@@ -178,7 +178,7 @@ export default withRouter(({ isMobile, router, hideLogo = false }) => {
                 </div>
               </nav>
             </Container>
-          );
+          )
         }
 
         return (
@@ -359,8 +359,8 @@ export default withRouter(({ isMobile, router, hideLogo = false }) => {
               </div>
             </nav>
           </Container>
-        );
+        )
       }}
     </MediaQueryConsumer>
-  );
-});
+  )
+})

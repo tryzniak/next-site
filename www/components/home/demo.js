@@ -1,11 +1,11 @@
-import Logo from '../logo';
-import Container from '../container';
-import Tabs from '../tabs';
-import Editor from './editor';
-import Browser from './browser';
-import { MediaQueryConsumer } from '../media-query';
+import Logo from '../logo'
+import Container from '../container'
+import Tabs from '../tabs'
+import Editor from './editor'
+import Browser from './browser'
+import { MediaQueryConsumer } from '../media-query'
 
-import TabButton from './tab-button';
+import TabButton from './tab-button'
 
 const DEMO_DATA = {
   'File-System Routing': require('./demos/file-system-routing').default,
@@ -13,7 +13,7 @@ const DEMO_DATA = {
   'Server Side Rendering': require('./demos/ssr').default,
   'Static Exporting': require('./demos/static-exporting').default,
   'More...': require('./demos/more').default
-};
+}
 
 export default () => {
   return (
@@ -77,31 +77,31 @@ export default () => {
                   <div className="demo-body row">
                     {isTablet &&
                       (() => {
-                        let data = DEMO_DATA[selectedId];
+                        let data = DEMO_DATA[selectedId]
                         if (!data.type.length) {
-                          return data.getBody({ isTablet, isMobile }) || null;
+                          return data.getBody({ isTablet, isMobile }) || null
                         }
 
                         return (
                           <div className="column">
                             <Tabs data={data.tabs}>
                               {(onSelect, _selectedId, selectedIndex) => {
-                                let content = null;
-                                let data = DEMO_DATA[selectedId];
+                                let content = null
+                                let data = DEMO_DATA[selectedId]
                                 if (_selectedId === data.tabs[0]) {
                                   content =
                                     data.type[0] === 'editor' ? (
                                       <Editor data={data.editor1} />
                                     ) : (
                                       <Browser data={data.browser1} />
-                                    );
+                                    )
                                 } else {
                                   content =
                                     data.type[1] === 'editor' ? (
                                       <Editor data={data.editor2} />
                                     ) : (
                                       <Browser data={data.browser2} />
-                                    );
+                                    )
                                 }
                                 return (
                                   <div>
@@ -126,17 +126,17 @@ export default () => {
                                       {data.tabs[1]}
                                     </TabButton>
                                   </div>
-                                );
+                                )
                               }}
                             </Tabs>
                           </div>
-                        );
+                        )
                       })()}
                     {!isTablet &&
                       (() => {
-                        let data = DEMO_DATA[selectedId];
+                        let data = DEMO_DATA[selectedId]
                         if (!data.type.length) {
-                          return data.getBody({}) || null;
+                          return data.getBody({}) || null
                         }
 
                         let content1 =
@@ -144,20 +144,20 @@ export default () => {
                             <Editor data={data.editor1} />
                           ) : (
                             <Browser data={data.browser1} />
-                          );
+                          )
                         let content2 =
                           data.type[1] === 'editor' ? (
                             <Editor data={data.editor2} />
                           ) : (
                             <Browser data={data.browser2} />
-                          );
+                          )
 
                         return (
                           <>
                             <div className="column">{content1}</div>
                             <div className="column">{content2}</div>
                           </>
-                        );
+                        )
                       })()}
                   </div>
                   <div className="demo-footer">
@@ -170,5 +170,5 @@ export default () => {
         </Container>
       )}
     </MediaQueryConsumer>
-  );
-};
+  )
+}

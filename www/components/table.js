@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 // Packages
-import React from 'react';
+import React from 'react'
 
 const Table = ({ children }) => (
   <table cellSpacing="0" cellPadding="5">
@@ -18,13 +18,13 @@ const Table = ({ children }) => (
       </style>
     </tbody>
   </table>
-);
+)
 
 class Row extends React.Component {
   getChildContext() {
     return {
       header: this.props.header || false
-    };
+    }
   }
 
   render() {
@@ -43,13 +43,13 @@ class Row extends React.Component {
           `}
         </style>
       </tr>
-    );
+    )
   }
 }
 
 Row.childContextTypes = {
   header: PropTypes.bool
-};
+}
 
 const Column = ({ children }, context) =>
   React.createElement(
@@ -60,12 +60,12 @@ const Column = ({ children }, context) =>
       }
     },
     children
-  );
+  )
 
 Column.contextTypes = {
   header: PropTypes.bool
-};
+}
 
-const Cell = Column;
+const Cell = Column
 
-export { Table, Row, Column, Cell };
+export { Table, Row, Column, Cell }

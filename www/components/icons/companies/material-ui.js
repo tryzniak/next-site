@@ -58,4 +58,4 @@ export default () => (
     />
     <path d="M212.894 27H210.831V11.3594H212.894V27Z" fill="black" />
   </svg>
-);
+)

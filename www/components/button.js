@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import classNames from 'classnames';
+import Link from 'next/link'
+import classNames from 'classnames'
 
-import withPure from './hoc/pure';
+import withPure from './hoc/pure'
 
 export default withPure(
   ({ children, invert, href, as, className, prefetch, ...props }) => {
@@ -49,15 +49,15 @@ export default withPure(
           `}
         </style>
       </a>
-    );
+    )
 
     if (href) {
       return (
         <Link href={href} as={as} prefetch={prefetch}>
           {a}
         </Link>
-      );
+      )
     }
-    return a;
+    return a
   }
-);
+)

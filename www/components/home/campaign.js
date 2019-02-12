@@ -1,5 +1,5 @@
-import Container from '../container';
-import WordSlider from '../word-slider';
+import Container from '../container'
+import WordSlider from '../word-slider'
 
 export default () => (
   <div className="slider-container">
@@ -25,4 +25,4 @@ export default () => (
       }
     `}</style>
   </div>
-);
+)

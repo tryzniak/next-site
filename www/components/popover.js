@@ -1,23 +1,23 @@
-import { PureComponent } from 'react';
-import classNames from 'classnames';
+import { PureComponent } from 'react'
+import classNames from 'classnames'
 
 export default class Popover extends PureComponent {
   state = {
     show: false,
     top: true,
     left: false
-  };
+  }
 
   onMouseEnter = () => {
-    let top = Infinity;
-    let right = Infinity;
-    let left = 0;
+    let top = Infinity
+    let right = Infinity
+    let left = 0
 
     if (this.containerEl) {
-      const bounding = this.containerEl.getBoundingClientRect();
-      top = bounding.top;
-      right = window.innerWidth - bounding.right;
-      left = bounding.left;
+      const bounding = this.containerEl.getBoundingClientRect()
+      top = bounding.top
+      right = window.innerWidth - bounding.right
+      left = bounding.left
     }
 
     this.setState({
@@ -25,12 +25,12 @@ export default class Popover extends PureComponent {
       left: right < 100,
       right: left < 100,
       bottom: top < (this.props.top || 110)
-    });
-  };
+    })
+  }
 
   onMouseLeave = () => {
-    this.setState({ show: false });
-  };
+    this.setState({ show: false })
+  }
 
   handleClickOutside = ev => {
     if (
@@ -38,18 +38,18 @@ export default class Popover extends PureComponent {
       this.containerEl &&
       (this.containerEl === ev.target || this.containerEl.contains(ev.target))
     ) {
-      this.onMouseLeave();
+      this.onMouseLeave()
     }
-  };
+  }
 
   componentDidMount() {
-    window.addEventListener('mousedown', this.handleClickOutside);
-    window.addEventListener('touchstart', this.handleClickOutside);
+    window.addEventListener('mousedown', this.handleClickOutside)
+    window.addEventListener('touchstart', this.handleClickOutside)
   }
 
   componentWillUnmount() {
-    window.removeEventListener('mousedown', this.handleClickOutside);
-    window.removeEventListener('touchstart', this.handleClickOutside);
+    window.removeEventListener('mousedown', this.handleClickOutside)
+    window.removeEventListener('touchstart', this.handleClickOutside)
   }
 
   render() {
@@ -59,8 +59,8 @@ export default class Popover extends PureComponent {
       right: _right,
       content,
       children
-    } = this.props;
-    const { show, left, right, bottom } = this.state;
+    } = this.props
+    const { show, left, right, bottom } = this.state
 
     return (
       <div
@@ -151,6 +151,6 @@ export default class Popover extends PureComponent {
           {content}
         </div>
       </div>
-    );
+    )
   }
 }

@@ -1,4 +1,4 @@
-import withPure from './hoc/pure';
+import withPure from './hoc/pure'
 
 export default withPure(({ anchor, id, title, description }) => (
   <div>
@@ -25,4 +25,4 @@ export default withPure(({ anchor, id, title, description }) => (
     </h2>
     {description && <h3 className="f-reset subtitle fw4">{description}</h3>}
   </div>
-));
+))

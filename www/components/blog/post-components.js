@@ -1,7 +1,7 @@
-import Highlight from 'react-highlight/lib/optimized';
+import Highlight from 'react-highlight/lib/optimized'
 
-import { components as docsComponents } from '../docs/documentation';
-import { GenericLink } from '../text/link';
+import { components as docsComponents } from '../docs/documentation'
+import { GenericLink } from '../text/link'
 
 const H1 = ({ children }) => (
   <h1 className="fw6">
@@ -13,7 +13,7 @@ const H1 = ({ children }) => (
       font-size: 2rem;
     `}</style>
   </h1>
-);
+)
 
 const Ul = ({ children }) => (
   <ul>
@@ -23,7 +23,7 @@ const Ul = ({ children }) => (
       margin-bottom: 2rem;
     `}</style>
   </ul>
-);
+)
 
 const Li = ({ children }) => (
   <li>
@@ -41,7 +41,7 @@ const Li = ({ children }) => (
       }
     `}</style>
   </li>
-);
+)
 
 const Code = ({ children, syntax, className }) => {
   return (
@@ -65,8 +65,8 @@ const Code = ({ children, syntax, className }) => {
         `}
       </style>
     </pre>
-  );
-};
+  )
+}
 
 const P = ({ children }) => {
   return (
@@ -79,8 +79,8 @@ const P = ({ children }) => {
         }
       `}</style>
     </p>
-  );
-};
+  )
+}
 
 const Hr = () => (
   <div>
@@ -93,7 +93,7 @@ const Hr = () => (
       }
     `}</style>
   </div>
-);
+)
 
 export const components = {
   ...docsComponents,
@@ -103,4 +103,4 @@ export const components = {
   code: Code,
   p: P,
   hr: Hr
-};
+}

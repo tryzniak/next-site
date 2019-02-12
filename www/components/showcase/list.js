@@ -1,60 +1,60 @@
-import { Component, PureComponent } from 'react';
-import Link from 'next/link';
-import Router, { withRouter } from 'next/router';
-import classNames from 'classnames';
-import { format, parse } from 'url';
+import { Component, PureComponent } from 'react'
+import Link from 'next/link'
+import Router, { withRouter } from 'next/router'
+import classNames from 'classnames'
+import { format, parse } from 'url'
 import {
   List,
   WindowScroller,
   defaultCellRangeRenderer
-} from 'react-virtualized';
-import { directionalProperty } from 'polished';
+} from 'react-virtualized'
+import { directionalProperty } from 'polished'
 
-import Button from '../button';
-import Container from '../container';
-import { MediaQueryConsumer } from '../media-query';
-import SitePreview from './site-preview';
+import Button from '../button'
+import Container from '../container'
+import { MediaQueryConsumer } from '../media-query'
+import SitePreview from './site-preview'
 
-import ArrowUpIcon from '../icons/arrow-up';
-import HeartIcon from '../icons/heart';
+import ArrowUpIcon from '../icons/arrow-up'
+import HeartIcon from '../icons/heart'
 
-import { sortOrder, mapping } from '../../showcase-manifest';
-import { links } from '../../site-manifest';
+import { sortOrder, mapping } from '../../showcase-manifest'
+import { links } from '../../site-manifest'
 
-const GAP_X = 48;
-const GAP_Y = 48;
-const ROW_HEIGHT = 220 + GAP_Y;
+const GAP_X = 48
+const GAP_Y = 48
+const ROW_HEIGHT = 220 + GAP_Y
 
 function getData(category) {
   return sortOrder.filter(id => {
     return (
       category === 'all' ||
       (mapping[id].tags && mapping[id].tags.indexOf(category) !== -1)
-    );
-  });
+    )
+  })
 }
 
-let dataCategory = 'All';
-let dataSource = getData('all');
+let dataCategory = 'All'
+let dataSource = getData('all')
 
 const getRowHeight = ({ index }, columnCount) => {
   if (columnCount < 3) {
     // no highlighted
-    return 1;
+    return 1
   }
   let height = 1,
-    startIndex = index * columnCount;
+    startIndex = index * columnCount
   for (let i = 0; i < columnCount; ++i) {
     if (
       dataSource[startIndex + i] &&
       mapping[dataSource[startIndex + i]].highlighted
     ) {
-      height *= columnCount - 1;
-      return height;
+      height *= columnCount - 1
+      return height
     }
   }
-  return height;
-};
+  return height
+}
 
 const SitePreviewPlaceholder = () => (
   <div
@@ -63,11 +63,11 @@ const SitePreviewPlaceholder = () => (
       height: '100%'
     }}
   />
-);
+)
 
 const scrollTo = top => {
-  window.scrollTo({ top, left: 0, behavior: 'smooth' });
-};
+  window.scrollTo({ top, left: 0, behavior: 'smooth' })
+}
 
 const getRowRender = columnCount => ({
   index,
@@ -78,19 +78,19 @@ const getRowRender = columnCount => ({
   style
 }) => {
   // let height = getRowHeight({index}, columnCount)
-  let content = [];
-  let highlighted = null;
-  let rowDir = 'row';
+  let content = []
+  let highlighted = null
+  let rowDir = 'row'
 
-  let startIndex = index * columnCount;
+  let startIndex = index * columnCount
   for (let i = 0; i < columnCount; ++i) {
-    let siteData = mapping[dataSource[startIndex + i]];
+    let siteData = mapping[dataSource[startIndex + i]]
     if (!siteData) {
       if (columnCount > 1) {
         // push placeholder
-        content.push(<SitePreviewPlaceholder key={`site-${startIndex + i}`} />);
+        content.push(<SitePreviewPlaceholder key={`site-${startIndex + i}`} />)
       }
-      continue;
+      continue
     }
     if (!highlighted && siteData.highlighted && columnCount === 3) {
       highlighted = (
@@ -103,8 +103,8 @@ const getRowRender = columnCount => ({
           isTablet={columnCount < 3}
           key={`site-${siteData.internalUrl}`}
         />
-      );
-      rowDir = siteData.highlighted === 1 ? 'row' : 'row-reverse';
+      )
+      rowDir = siteData.highlighted === 1 ? 'row' : 'row-reverse'
     } else {
       content.push(
         <SitePreview
@@ -114,7 +114,7 @@ const getRowRender = columnCount => ({
           isTablet={columnCount < 3}
           key={`site-${siteData.internalUrl}`}
         />
-      );
+      )
     }
   }
 
@@ -144,50 +144,50 @@ const getRowRender = columnCount => ({
           ]
         : content}
     </div>
-  );
-};
+  )
+}
 
 // render 3 images per row
-const Row = getRowRender(3);
+const Row = getRowRender(3)
 
 // render 2 images per row
-const TabletRow = getRowRender(2);
+const TabletRow = getRowRender(2)
 
 // render 1 image per row
-const MobileRow = getRowRender(1);
+const MobileRow = getRowRender(1)
 
 export default class extends Component {
   state = {
     width: 1
-  };
-  stopCachedIndex = 0;
-  startCachedIndex = Infinity;
-  lastColumnCount = 3;
+  }
+  stopCachedIndex = 0
+  startCachedIndex = Infinity
+  lastColumnCount = 3
 
   resize = () => {
     this.setState({
       width: Math.min(window.innerWidth, 1440)
-    });
-  };
+    })
+  }
   updateCategory(category) {
     if (category !== dataCategory) {
-      dataCategory = category;
-      dataSource = getData(category.toLowerCase());
+      dataCategory = category
+      dataSource = getData(category.toLowerCase())
       if (window.scrollY > 16 * 12) {
-        scrollTo(16 * 12);
+        scrollTo(16 * 12)
       }
     }
   }
   componentDidMount() {
-    this.updateCategory(this.props.category);
-    window.addEventListener('resize', this.resize);
-    this.resize();
+    this.updateCategory(this.props.category)
+    window.addEventListener('resize', this.resize)
+    this.resize()
   }
   componentWillUnmount() {
-    window.removeEventListener('resize', this.resize);
+    window.removeEventListener('resize', this.resize)
   }
   componentWillReceiveProps(newProps) {
-    this.updateCategory(newProps.category);
+    this.updateCategory(newProps.category)
   }
   overscanIndicesGetter = (
     { cellCount, overscanCellsCount, startIndex, stopIndex },
@@ -198,26 +198,26 @@ export default class extends Component {
     let overscanStartIndex = Math.max(
       0,
       Math.min(startIndex - overscanCellsCount, this.startCachedIndex)
-    );
+    )
     this.startCachedIndex = Math.max(
       startIndex - 50,
       Math.min(this.startCachedIndex, overscanStartIndex)
-    );
+    )
 
     let overscanStopIndex = Math.min(
       cellCount - 1,
       Math.max(stopIndex + overscanCellsCount, this.stopCachedIndex)
-    );
+    )
     this.stopCachedIndex = Math.min(
       stopIndex + 50,
       Math.max(this.stopCachedIndex, overscanStopIndex)
-    );
+    )
 
     return {
       overscanStartIndex,
       overscanStopIndex
-    };
-  };
+    }
+  }
   render() {
     return (
       <Container wide gray center>
@@ -269,11 +269,11 @@ export default class extends Component {
                       margin: 'auto'
                     }}
                     ref={list => {
-                      let columnCount = isMobile ? 1 : isTablet ? 2 : 3;
+                      let columnCount = isMobile ? 1 : isTablet ? 2 : 3
                       if (columnCount !== this.lastColumnCount) {
                         // reset row height for responsive width
-                        this.lastColumnCount = columnCount;
-                        list.recomputeRowHeights();
+                        this.lastColumnCount = columnCount
+                        list.recomputeRowHeights()
                       }
                     }}
                   />
@@ -295,6 +295,6 @@ export default class extends Component {
           )}
         </MediaQueryConsumer>
       </Container>
-    );
+    )
   }
 }

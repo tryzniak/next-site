@@ -1,39 +1,39 @@
-import React, { PureComponent } from 'react';
-import classNames from 'classnames';
+import React, { PureComponent } from 'react'
+import classNames from 'classnames'
 
 export default class extends PureComponent {
   state = {
     scrolled: false,
     fixed: false,
     active: false
-  };
+  }
 
   onScroll = () => {
-    const scroll = window.scrollY || document.body.scrollTop;
-    const scrolled = scroll > (this.props.distance || 0);
-    const fixed = scroll >= (this.props.distance || 0);
-    const active = scroll >= (this.props.active || 0);
+    const scroll = window.scrollY || document.body.scrollTop
+    const scrolled = scroll > (this.props.distance || 0)
+    const fixed = scroll >= (this.props.distance || 0)
+    const active = scroll >= (this.props.active || 0)
 
     if (
       scrolled !== this.state.scrolled ||
       fixed !== this.state.fixed ||
       active !== this.state.active
     ) {
-      this.setState({ scrolled, fixed, active });
+      this.setState({ scrolled, fixed, active })
     }
-  };
+  }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.onScroll);
-    this.onScroll();
+    window.addEventListener('scroll', this.onScroll)
+    this.onScroll()
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('scroll', this.onScroll)
   }
 
   render() {
-    const { scrolled, fixed, active } = this.state;
+    const { scrolled, fixed, active } = this.state
     const {
       height,
       offset,
@@ -44,7 +44,7 @@ export default class extends PureComponent {
       defaultActive,
       dotBackground,
       children
-    } = this.props;
+    } = this.props
 
     return (
       <header>
@@ -101,6 +101,6 @@ export default class extends PureComponent {
           `}
         </style>
       </header>
-    );
+    )
   }
 }

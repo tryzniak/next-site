@@ -1,42 +1,42 @@
-import React from 'react';
-import classNames from 'classnames';
-import Link from 'next/link';
+import React from 'react'
+import classNames from 'classnames'
+import Link from 'next/link'
 
-import Logo from '../logo';
-import Container from '../container';
-import Button from '../button';
-import Popover from '../popover';
-import Campaign from './campaign';
+import Logo from '../logo'
+import Container from '../container'
+import Button from '../button'
+import Popover from '../popover'
+import Campaign from './campaign'
 
-import { links } from '../../site-manifest';
+import { links } from '../../site-manifest'
 
-const LOGO_TOP = 170;
+const LOGO_TOP = 170
 
 function easing(t) {
-  return 1 + --t * t * t * t * t;
+  return 1 + --t * t * t * t * t
 }
 
 export default class extends React.PureComponent {
   state = {
     scroll: 0
-  };
+  }
 
   onScroll = () => {
-    const scroll = window.scrollY || document.body.scrollTop;
-    this.setState({ scroll });
-  };
+    const scroll = window.scrollY || document.body.scrollTop
+    this.setState({ scroll })
+  }
 
   componentDidMount() {
-    window.addEventListener('scroll', this.onScroll);
-    this.onScroll();
+    window.addEventListener('scroll', this.onScroll)
+    this.onScroll()
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('scroll', this.onScroll)
   }
 
   render() {
-    const { scroll } = this.state;
+    const { scroll } = this.state
 
     return (
       <Container
@@ -211,6 +211,6 @@ export default class extends React.PureComponent {
           </div>
         </Container>
       </Container>
-    );
+    )
   }
 }

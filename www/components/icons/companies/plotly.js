@@ -75,4 +75,4 @@ export default () => (
       fill="white"
     />
   </svg>
-);
+)

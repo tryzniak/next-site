@@ -19,7 +19,7 @@ export const Code = ({ children, syntax }) => (
       `}
     </style>
   </pre>
-);
+)
 
 export const InlineCode = ({ children, wrap = false }) => (
   <code className={wrap && 'wrap'}>
@@ -55,4 +55,4 @@ export const InlineCode = ({ children, wrap = false }) => (
       `}
     </style>
   </code>
-);
+)

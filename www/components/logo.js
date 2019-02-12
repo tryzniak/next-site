@@ -1,4 +1,4 @@
-import withPure from './hoc/pure';
+import withPure from './hoc/pure'
 
 export default withPure(({ size }) => (
   <svg
@@ -18,4 +18,4 @@ export default withPure(({ size }) => (
       fillRule="nonzero"
     />
   </svg>
-));
+))

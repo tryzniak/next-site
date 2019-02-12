@@ -1,12 +1,12 @@
-import Container from '../container';
-import SectionHeader from '../section-header';
-import Blockchain from '../icons/companies/blockchain';
-import Expo from '../icons/companies/expo';
-import Blockstack from '../icons/companies/blockstack';
-import Material from '../icons/companies/material-ui';
-import Plotly from '../icons/companies/plotly';
+import Container from '../container'
+import SectionHeader from '../section-header'
+import Blockchain from '../icons/companies/blockchain'
+import Expo from '../icons/companies/expo'
+import Blockstack from '../icons/companies/blockstack'
+import Material from '../icons/companies/material-ui'
+import Plotly from '../icons/companies/plotly'
 
-import Carousel from './carousel';
+import Carousel from './carousel'
 
 export default () => (
   <Container padding wide>
@@ -25,7 +25,10 @@ export default () => (
           </div>
           <div className="col">
             <a href="https://blockchain.com/">
-              <img src="/static/images/showcases/blockchain.png" alt="Blockchain" />
+              <img
+                src="/static/images/showcases/blockchain.png"
+                alt="Blockchain"
+              />
             </a>
             <div className="logo">
               <Blockchain />
@@ -41,7 +44,10 @@ export default () => (
           </div>
           <div className="col">
             <a href="https://material-ui.com/">
-              <img src="/static/images/showcases/material-ui.jpg" alt="Material UI" />
+              <img
+                src="/static/images/showcases/material-ui.jpg"
+                alt="Material UI"
+              />
             </a>
             <div className="logo">
               <Material />
@@ -49,7 +55,10 @@ export default () => (
           </div>
           <div className="col">
             <a href="https://blockstack.org/">
-              <img src="/static/images/showcases/blockstack.png" alt="Blockstack" />
+              <img
+                src="/static/images/showcases/blockstack.png"
+                alt="Blockstack"
+              />
             </a>
             <div className="logo">
               <Blockstack />
@@ -98,11 +107,13 @@ export default () => (
           margin-top: -2rem;
           cursor: pointer;
           border-radius: 7px;
-          box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.08);
+          box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.1),
+            0px 10px 20px rgba(0, 0, 0, 0.08);
         }
 
         img:hover {
-          box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.1), 0px 10px 10px rgba(0, 0, 0, 0.08);
+          box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.1),
+            0px 10px 10px rgba(0, 0, 0, 0.08);
         }
 
         .divider {
@@ -146,4 +157,4 @@ export default () => (
       `}
     </style>
   </Container>
-);
+)

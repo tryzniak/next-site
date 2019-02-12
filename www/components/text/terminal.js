@@ -1,8 +1,8 @@
-import React from 'react';
-import cn from 'classnames';
-import PropTypes from 'prop-types';
-import { GenericLink } from './link';
-import { FONT_FAMILY_MONO, COLOR_CODE_LIGHT } from '../css-config';
+import React from 'react'
+import cn from 'classnames'
+import PropTypes from 'prop-types'
+import { GenericLink } from './link'
+import { FONT_FAMILY_MONO, COLOR_CODE_LIGHT } from '../css-config'
 
 export const TerminalInput = (
   { children, prefix },
@@ -39,24 +39,24 @@ export const TerminalInput = (
       }
     `}</style>
   </div>
-);
+)
 
 TerminalInput.contextTypes = {
   darkBg: PropTypes.bool,
   disabled: PropTypes.bool
-};
+}
 
 export class TerminalOutput extends React.Component {
   static childContextTypes = {
     darkBg: PropTypes.bool
-  };
+  }
 
   getChildContext() {
-    return { darkBg: true };
+    return { darkBg: true }
   }
 
   render() {
-    const { children, className, showPrompt } = this.props;
+    const { children, className, showPrompt } = this.props
     return (
       <div className={cn('output', { prompt: showPrompt }, className)}>
         {children}
@@ -87,7 +87,7 @@ export class TerminalOutput extends React.Component {
           }
         `}</style>
       </div>
-    );
+    )
   }
 }
 
@@ -100,4 +100,4 @@ export const TerminalLink = props => (
       }
     `}</style>
   </span>
-);
+)

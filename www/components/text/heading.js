@@ -1,4 +1,4 @@
-import { bool } from 'prop-types';
+import { bool } from 'prop-types'
 
 export const H1 = ({ className, children }, { darkBg }) => (
   <h1 className={`${className}${darkBg ? ' inverted' : ''}`}>
@@ -20,11 +20,11 @@ export const H1 = ({ className, children }, { darkBg }) => (
       }
     `}</style>
   </h1>
-);
+)
 
 H1.contextTypes = {
   darkBg: bool
-};
+}
 
 const B = ({ children }) => (
   <span>
@@ -37,9 +37,9 @@ const B = ({ children }) => (
       `}
     </style>
   </span>
-);
+)
 
-H1.B = B;
+H1.B = B
 
 export const H2 = ({ children }, { darkBg }) => (
   <h2 className={darkBg ? 'inverted' : ''}>
@@ -60,11 +60,11 @@ export const H2 = ({ children }, { darkBg }) => (
       }
     `}</style>
   </h2>
-);
+)
 
 H2.contextTypes = {
   darkBg: bool
-};
+}
 
 export const H3 = ({ children }, { darkBg }) => (
   <h3 className={darkBg ? 'inverted' : ''}>
@@ -85,11 +85,11 @@ export const H3 = ({ children }, { darkBg }) => (
       }
     `}</style>
   </h3>
-);
+)
 
 H3.contextTypes = {
   darkBg: bool
-};
+}
 
 export const H4 = ({ children, isCommand }, { darkBg }) => (
   <h4 className={(isCommand ? 'command' : '') + (darkBg ? ' inverted' : '')}>
@@ -118,11 +118,11 @@ export const H4 = ({ children, isCommand }, { darkBg }) => (
       }
     `}</style>
   </h4>
-);
+)
 
 H4.contextTypes = {
   darkBg: bool
-};
+}
 
 export const H5 = ({ children }, { darkBg }) => (
   <h5 className={darkBg ? 'inverted' : ''}>
@@ -143,8 +143,8 @@ export const H5 = ({ children }, { darkBg }) => (
       }
     `}</style>
   </h5>
-);
+)
 
 H5.contextTypes = {
   darkBg: bool
-};
+}

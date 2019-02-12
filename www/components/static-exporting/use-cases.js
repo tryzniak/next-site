@@ -1,6 +1,6 @@
-import Container from '../container';
-import Checkmark from '../icons/checkmark';
-import { MediaQueryConsumer } from '../media-query';
+import Container from '../container'
+import Checkmark from '../icons/checkmark'
+import { MediaQueryConsumer } from '../media-query'
 
 export default () => (
   <MediaQueryConsumer>
@@ -70,10 +70,10 @@ export default () => (
               `}
             </style>
           </Container>
-        );
+        )
       }
 
-      return null;
+      return null
     }}
   </MediaQueryConsumer>
-);
+)

@@ -1,7 +1,7 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
-import Code from './code';
-import withFrame from './frame';
+import Code from './code'
+import withFrame from './frame'
 
 const IndexPage = withFrame(({ A }) => (
   <div>
@@ -14,7 +14,7 @@ const IndexPage = withFrame(({ A }) => (
       }
     `}</style>
   </div>
-));
+))
 
 const SourcePage = withFrame(({ A }) => (
   <div>
@@ -118,7 +118,7 @@ const SourcePage = withFrame(({ A }) => (
       }
     `}</style>
   </div>
-));
+))
 
 export default {
   type: ['browser', 'browser'],
@@ -158,4 +158,4 @@ export default {
       </p>
     </>
   )
-};
+}

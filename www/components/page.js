@@ -1,13 +1,13 @@
-import Head from 'next/head';
+import Head from 'next/head'
 
-import '../lib/polyfill';
-import { withMediaQuery } from './media-query';
-import RouterEvents from '../lib/router-events';
-import { trackPageview } from '../lib/analytics';
+import '../lib/polyfill'
+import { withMediaQuery } from './media-query'
+import RouterEvents from '../lib/router-events'
+import { trackPageview } from '../lib/analytics'
 
 RouterEvents.on('routeChangeComplete', url => {
-  trackPageview(url);
-});
+  trackPageview(url)
+})
 
 export default withMediaQuery(({ title, description, children }) => (
   <div>
@@ -43,8 +43,9 @@ export default withMediaQuery(({ title, description, children }) => (
           min-height: 100%;
           margin: 0;
           line-height: 1.65;
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-            'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+            'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+            'Helvetica Neue', sans-serif;
           font-size: 16px;
           font-weight: 400;
           min-width: 320px;
@@ -85,8 +86,9 @@ export default withMediaQuery(({ title, description, children }) => (
         }
         code {
           font-size: 0.9em;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-            Bitstream Vera Sans Mono, Courier New, monospace, serif;
+          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+            serif;
         }
         code:before,
         code:after {
@@ -345,4 +347,4 @@ export default withMediaQuery(({ title, description, children }) => (
     </style>
     {children}
   </div>
-));
+))

@@ -1,4 +1,4 @@
-import GithubSlugger from 'github-slugger';
+import GithubSlugger from 'github-slugger'
 
 const PermalinkIcon = () => (
   <span>
@@ -23,11 +23,11 @@ const PermalinkIcon = () => (
       </g>
     </svg>
   </span>
-);
+)
 
 class Heading extends React.Component {
   render() {
-    const { component, className, children, ...rest } = this.props;
+    const { component, className, children, ...rest } = this.props
     return React.cloneElement(
       component,
       {
@@ -35,37 +35,37 @@ class Heading extends React.Component {
         ...rest
       },
       children
-    );
+    )
   }
 }
 
 export default props => {
-  const { offsetTop } = props;
-  const component = props.children;
-  const children = component.props.children || '';
+  const { offsetTop } = props
+  const component = props.children
+  const children = component.props.children || ''
 
-  let id = props.id;
-  let text = children;
+  let id = props.id
+  let text = children
 
-  const slugger = new GithubSlugger();
+  const slugger = new GithubSlugger()
 
   if (null == id) {
     // If there are sub components, convert them to text
     if (Array.isArray(children)) {
       text = children
         .map(child => {
-          return typeof child === 'object' ? child.props.children : child;
+          return typeof child === 'object' ? child.props.children : child
         })
-        .join('');
+        .join('')
     }
 
-    id = slugger.slug(text);
+    id = slugger.slug(text)
   }
 
   const targetStyle =
     null != offsetTop
       ? { marginTop: -offsetTop + 'px', paddingTop: offsetTop + 'px' }
-      : null;
+      : null
   return (
     <Heading
       className={props.lean ? 'lean' : ''}
@@ -147,5 +147,5 @@ export default props => {
         `}
       </style>
     </Heading>
-  );
-};
+  )
+}

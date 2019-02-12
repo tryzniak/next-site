@@ -1,21 +1,21 @@
-import fs from 'fs';
-import path from 'path';
-import RSS from 'rss';
+import fs from 'fs'
+import path from 'path'
+import RSS from 'rss'
 
 function importAll(r) {
-  return r.keys().map(r);
+  return r.keys().map(r)
 }
 
 const previewItems = importAll(
   require.context('../blog', false, /\-preview\.mdx$/)
-);
+)
 
 function dateSortDesc(a, b) {
-  const date1 = new Date(a.meta.date);
-  const date2 = new Date(b.meta.date);
-  if (date1 > date2) return -1;
-  if (date1 < date2) return 1;
-  return 0;
+  const date1 = new Date(a.meta.date)
+  const date2 = new Date(b.meta.date)
+  if (date1 > date2) return -1
+  if (date1 < date2) return 1
+  return 0
 }
 
 function generate(outputPath) {
@@ -23,7 +23,7 @@ function generate(outputPath) {
     title: 'Next.js Blog',
     site_url: 'https://nextjs.org',
     feed_url: 'https://nextjs.org/feed.xml'
-  });
+  })
 
   previewItems.sort(dateSortDesc).map(({ meta }) => {
     feed.item({
@@ -35,11 +35,11 @@ function generate(outputPath) {
       custom_elements: [].concat(
         meta.authors.map(author => ({ author: [{ name: author.name }] }))
       )
-    });
-  });
+    })
+  })
 
-  const rss = feed.xml({ indent: true });
-  fs.writeFileSync(path.join(outputPath, 'feed.xml'), rss);
+  const rss = feed.xml({ indent: true })
+  fs.writeFileSync(path.join(outputPath, 'feed.xml'), rss)
 }
 
-export default generate;
+export default generate

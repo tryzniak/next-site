@@ -1,27 +1,30 @@
-import React from 'react';
+import React from 'react'
 
-import Terminal from './terminal';
-import Input from '../svg/Input';
-import Result from '../svg/Result';
+import Terminal from './terminal'
+import Input from '../svg/Input'
+import Result from '../svg/Result'
 
 export default class Animation extends React.Component {
   static defaultProps = {
     inView: true
-  };
+  }
 
   state = {
     showResult: false
-  };
+  }
 
   render() {
-    const { inView } = this.props;
+    const { inView } = this.props
     return (
       <div ref={this.props.innerRef} className="animation-row">
         <div className="input">
           <Input animating={inView} />
         </div>
         <div className="terminal-wrapper">
-          <Terminal running="true" showResult={() => this.setState({ showResult: true })} />
+          <Terminal
+            running="true"
+            showResult={() => this.setState({ showResult: true })}
+          />
         </div>
         <div className="result">{this.props.children}</div>
         <style jsx>
@@ -66,14 +69,17 @@ export default class Animation extends React.Component {
               z-index: 1;
               /* tune position of terminal with respect to input and output */
               margin-top: -36px;
-              box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.48), 0px 14px 50px rgba(0, 0, 0, 0.38);
+              box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.48),
+                0px 14px 50px rgba(0, 0, 0, 0.38);
             }
 
             .input {
               visibility: ${inView ? 'visible' : 'hidden'};
             }
             .result {
-              visibility: ${inView && this.state.showResult ? 'visible' : 'hidden'};
+              visibility: ${inView && this.state.showResult
+                ? 'visible'
+                : 'hidden'};
               z-index: 0;
               opacity: 0;
               animation: 1s fade-in-right ease forwards 50ms;
@@ -104,6 +110,6 @@ export default class Animation extends React.Component {
           `}
         </style>
       </div>
-    );
+    )
   }
 }

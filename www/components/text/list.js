@@ -18,7 +18,7 @@ export const UL = ({ children }) => (
       `}
     </style>
   </ul>
-);
+)
 
 export const OL = ({ children }) => (
   <ol>
@@ -32,7 +32,7 @@ export const OL = ({ children }) => (
       `}
     </style>
   </ol>
-);
+)
 
 export const LI = ({ children }) => (
   <li>
@@ -47,4 +47,4 @@ export const LI = ({ children }) => (
       `}
     </style>
   </li>
-);
+)

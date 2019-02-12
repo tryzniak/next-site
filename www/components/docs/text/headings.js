@@ -8,7 +8,7 @@ const H1 = ({ children, ...props }) => (
       margin-top: 0;
     `}</style>
   </h1>
-);
+)
 
 const H2 = ({ children, ...props }) => (
   <h2 {...props}>
@@ -19,7 +19,7 @@ const H2 = ({ children, ...props }) => (
       font-weight: 500;
     `}</style>
   </h2>
-);
+)
 
 const H3 = ({ children, ...props }) => (
   <h3 {...props}>
@@ -30,7 +30,7 @@ const H3 = ({ children, ...props }) => (
       font-weight: 600;
     `}</style>
   </h3>
-);
+)
 
 const H4 = ({ children, ...props }) => (
   <h4 {...props}>
@@ -41,7 +41,7 @@ const H4 = ({ children, ...props }) => (
       font-weight: 600;
     `}</style>
   </h4>
-);
+)
 
 const H5 = ({ children, ...props }) => (
   <h5 {...props}>
@@ -53,6 +53,6 @@ const H5 = ({ children, ...props }) => (
       margin-top: 2rem;
     `}</style>
   </h5>
-);
+)
 
-export { H1, H2, H3, H4, H5 };
+export { H1, H2, H3, H4, H5 }

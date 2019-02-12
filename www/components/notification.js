@@ -1,9 +1,9 @@
-import Link from 'next/link';
-import { ellipsis } from 'polished';
+import Link from 'next/link'
+import { ellipsis } from 'polished'
 
-import { MediaQueryConsumer } from './media-query';
-import Container from './container';
-import withPure from './hoc/pure';
+import { MediaQueryConsumer } from './media-query'
+import Container from './container'
+import withPure from './hoc/pure'
 
 export default withPure(({ href, title, titleMobile, children }) => (
   <MediaQueryConsumer>
@@ -36,4 +36,4 @@ export default withPure(({ href, title, titleMobile, children }) => (
       </div>
     )}
   </MediaQueryConsumer>
-));
+))

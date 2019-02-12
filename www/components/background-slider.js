@@ -28,4 +28,4 @@ export default ({ duration, children }) => (
       <div>{children}</div>
     </div>
   </div>
-);
+)

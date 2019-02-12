@@ -1,24 +1,24 @@
-import { withRouter } from 'next/router';
+import { withRouter } from 'next/router'
 
-import Page from '../components/page';
-import Header from '../components/header';
-import Footer from '../components/footer';
-import Navbar from '../components/navbar';
-import Tabs from '../components/tabs';
-import { MediaQueryConsumer } from '../components/media-query';
+import Page from '../components/page'
+import Header from '../components/header'
+import Footer from '../components/footer'
+import Navbar from '../components/navbar'
+import Tabs from '../components/tabs'
+import { MediaQueryConsumer } from '../components/media-query'
 
-import Title from '../components/showcase/title';
-import List from '../components/showcase/list';
-import Filter from '../components/showcase/filter';
-import SiteDetail from '../components/showcase/site-detail';
-import SocialMeta from '../components/social-meta';
+import Title from '../components/showcase/title'
+import List from '../components/showcase/list'
+import Filter from '../components/showcase/filter'
+import SiteDetail from '../components/showcase/site-detail'
+import SocialMeta from '../components/social-meta'
 
-import { categories, mapping } from '../showcase-manifest';
+import { categories, mapping } from '../showcase-manifest'
 
-const HEADER_HEIGHT = 16 * 12;
+const HEADER_HEIGHT = 16 * 12
 
 function Showcase({ router }) {
-  const { item, from } = router.query;
+  const { item, from } = router.query
 
   return (
     <Page title="Showcase | Next.js">
@@ -54,7 +54,7 @@ function Showcase({ router }) {
       </MediaQueryConsumer>
       <Footer />
     </Page>
-  );
+  )
 }
 
-export default withRouter(Showcase);
+export default withRouter(Showcase)

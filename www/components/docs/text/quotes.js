@@ -1,6 +1,6 @@
 export const Blockquote = ({ children, ...props }) => (
   <blockquote {...props}>
-    { children }
+    {children}
 
     <style jsx>{`
       blockquote {
@@ -19,4 +19,3 @@ export const Blockquote = ({ children, ...props }) => (
     `}</style>
   </blockquote>
 )
-

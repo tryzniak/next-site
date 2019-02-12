@@ -1,18 +1,18 @@
-import Link from 'next/link';
-import { MDXProvider } from '@mdx-js/tag';
-import distanceInWordsToNow from 'date-fns/distance_in_words_to_now';
-import formatDate from 'date-fns/format';
+import Link from 'next/link'
+import { MDXProvider } from '@mdx-js/tag'
+import distanceInWordsToNow from 'date-fns/distance_in_words_to_now'
+import formatDate from 'date-fns/format'
 
-import Header from '../header';
-import Footer from '../footer';
-import Navbar from '../navbar';
-import Page from '../page';
-import Container from '../container';
-import Button from '../button';
-import { MediaQueryConsumer } from '../media-query';
-import { components } from './post-components';
-import SocialMeta from '../social-meta';
-import ArrowLeftLong from '../icons/arrow-left-long';
+import Header from '../header'
+import Footer from '../footer'
+import Navbar from '../navbar'
+import Page from '../page'
+import Container from '../container'
+import Button from '../button'
+import { MediaQueryConsumer } from '../media-query'
+import { components } from './post-components'
+import SocialMeta from '../social-meta'
+import ArrowLeftLong from '../icons/arrow-left-long'
 
 const Author = meta => (
   <div className="author">
@@ -79,7 +79,7 @@ const Author = meta => (
       }
     `}</style>
   </div>
-);
+)
 
 const HeaderImage = meta => {
   if (meta.headerImage) {
@@ -96,13 +96,13 @@ const HeaderImage = meta => {
           }
         `}</style>
       </div>
-    );
+    )
   }
-  return null;
-};
+  return null
+}
 
 export default meta => ({ children }) => {
-  const date = meta.date ? new Date(meta.date) : new Date();
+  const date = meta.date ? new Date(meta.date) : new Date()
 
   return (
     <MDXProvider components={components}>
@@ -195,5 +195,5 @@ export default meta => ({ children }) => {
         `}</style>
       </Page>
     </MDXProvider>
-  );
-};
+  )
+}

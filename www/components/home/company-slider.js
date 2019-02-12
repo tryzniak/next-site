@@ -1,28 +1,28 @@
-import BackgroundSlider from '../background-slider';
+import BackgroundSlider from '../background-slider'
 
-import OpenCollective from '../icons/companies/opencollective';
-import Eaze from '../icons/companies/eaze';
-import MagicLeap from '../icons/companies/magic-leap';
-import Trulia from '../icons/companies/trulia';
-import MozillaVR from '../icons/companies/mozilla-vr';
-import Netflix from '../icons/companies/netflix';
-import GitHub from '../icons/companies/github';
-import Scale from '../icons/companies/scale';
-import Auth0 from '../icons/companies/auth0';
-import Ticketmaster from '../icons/companies/ticketmaster';
-import Twitch from '../icons/companies/twitch';
+import OpenCollective from '../icons/companies/opencollective'
+import Eaze from '../icons/companies/eaze'
+import MagicLeap from '../icons/companies/magic-leap'
+import Trulia from '../icons/companies/trulia'
+import MozillaVR from '../icons/companies/mozilla-vr'
+import Netflix from '../icons/companies/netflix'
+import GitHub from '../icons/companies/github'
+import Scale from '../icons/companies/scale'
+import Auth0 from '../icons/companies/auth0'
+import Ticketmaster from '../icons/companies/ticketmaster'
+import Twitch from '../icons/companies/twitch'
 
-import Tencent from '../icons/companies/tencent';
-import Jet from '../icons/companies/jet';
-import Coinbase from '../icons/companies/coinbase';
-import Docker from '../icons/companies/docker';
-import Invision from '../icons/companies/invision';
-import Binance from '../icons/companies/binance';
-import Hulu from '../icons/companies/hulu';
-import Pling from '../icons/companies/pling';
-import Starbucks from '../icons/companies/starbucks';
-import Uber from '../icons/companies/uber';
-import Trovit from '../icons/companies/trovit';
+import Tencent from '../icons/companies/tencent'
+import Jet from '../icons/companies/jet'
+import Coinbase from '../icons/companies/coinbase'
+import Docker from '../icons/companies/docker'
+import Invision from '../icons/companies/invision'
+import Binance from '../icons/companies/binance'
+import Hulu from '../icons/companies/hulu'
+import Pling from '../icons/companies/pling'
+import Starbucks from '../icons/companies/starbucks'
+import Uber from '../icons/companies/uber'
+import Trovit from '../icons/companies/trovit'
 
 export default () => (
   <div className="company-slider">
@@ -125,4 +125,4 @@ export default () => (
       }
     `}</style>
   </div>
-);
+)

@@ -32,6 +32,6 @@ const LOCATIONS = [
   { lat: 25.033, lng: 121.5654 }, // Taipei
   { lat: 37.5665, lng: 126.978 }, // Seoul
   { lat: 13.7563, lng: 100.5018 } // Bangkok
-];
+]
 
-export default LOCATIONS;
+export default LOCATIONS

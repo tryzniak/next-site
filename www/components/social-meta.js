@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import Head from 'next/head'
 
 export default ({ title, description, image, url }) => (
   <Head>
@@ -10,4 +10,4 @@ export default ({ title, description, image, url }) => (
     {image && <meta name="twitter:card" content="summary_large_image" />}
     {image && <meta name="og:image" content={'https://nextjs.org' + image} />}
   </Head>
-);
+)

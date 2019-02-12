@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import { FONT_FAMILY_MONO, COLOR_CODE_LIGHT } from '../css-config';
+import PropTypes from 'prop-types'
+import { FONT_FAMILY_MONO, COLOR_CODE_LIGHT } from '../css-config'
 
 export const Code = ({ children, syntax }, { darkBg } = {}) => (
   <pre className={(darkBg ? 'dark' : '') + (syntax ? ` ${syntax}` : '')}>
@@ -32,11 +32,11 @@ export const Code = ({ children, syntax }, { darkBg } = {}) => (
       `}
     </style>
   </pre>
-);
+)
 
 Code.contextTypes = {
   darkBg: PropTypes.bool
-};
+}
 
 export const InlineCode = ({ children, noWrap }, { disabled, darkBg } = {}) => (
   <code
@@ -78,9 +78,9 @@ export const InlineCode = ({ children, noWrap }, { disabled, darkBg } = {}) => (
       `}
     </style>
   </code>
-);
+)
 
 InlineCode.contextTypes = {
   darkBg: PropTypes.bool,
   disabled: PropTypes.bool
-};
+}

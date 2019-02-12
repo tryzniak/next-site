@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
-import Container from '../container';
-import SectionHeader from '../section-header';
-import Globe from './globe';
-import Button from '../button';
+import Container from '../container'
+import SectionHeader from '../section-header'
+import Globe from './globe'
+import Button from '../button'
 
-import { MediaQueryConsumer } from '../media-query';
+import { MediaQueryConsumer } from '../media-query'
 
 export default class Links extends React.PureComponent {
   render() {
@@ -22,8 +22,8 @@ export default class Links extends React.PureComponent {
             <div className="column">
               <h3 className="f3 fw6">Unrivaled Performance</h3>
               <p>
-                Static sites can be deployed to CDNs for minimal latency, zero server load, and
-                faster global delivery.
+                Static sites can be deployed to CDNs for minimal latency, zero
+                server load, and faster global delivery.
               </p>
               <Button href="/showcase">View Showcase</Button>
             </div>
@@ -31,8 +31,8 @@ export default class Links extends React.PureComponent {
             <div className="column">
               <h3 className="f3 fw6">Deploy Anywhere</h3>
               <p>
-                Host your static site cheaply and easily with any provider such as Now, Github
-                Pages, or Amazon S3.
+                Host your static site cheaply and easily with any provider such
+                as Now, Github Pages, or Amazon S3.
               </p>
               <Button href="/docs">View Full Documentation</Button>
             </div>
@@ -40,10 +40,12 @@ export default class Links extends React.PureComponent {
             <div className="column">
               <h3 className="f3 fw6">Exceptionally Simple</h3>
               <p>
-                With no moving parts, static sites are secure, effortless to maintain, and easy to
-                reason about.
+                With no moving parts, static sites are secure, effortless to
+                maintain, and easy to reason about.
               </p>
-              <Button href="/learn/excel/static-html-export">Learn Next.js</Button>
+              <Button href="/learn/excel/static-html-export">
+                Learn Next.js
+              </Button>
             </div>
           </div>
         </Container>
@@ -94,6 +96,6 @@ export default class Links extends React.PureComponent {
           `}
         </style>
       </div>
-    );
+    )
   }
 }

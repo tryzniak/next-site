@@ -1,50 +1,50 @@
-import { PureComponent } from 'react';
-import Router, { withRouter } from 'next/router';
-import Link from 'next/link';
-import classNames from 'classnames';
+import { PureComponent } from 'react'
+import Router, { withRouter } from 'next/router'
+import Link from 'next/link'
+import classNames from 'classnames'
 
-import IObserver from '../intersection-observer';
+import IObserver from '../intersection-observer'
 
-const GAP_X = 48;
-const GAP_Y = 48;
-const ROW_HEIGHT = 250 + GAP_Y;
+const GAP_X = 48
+const GAP_Y = 48
+const ROW_HEIGHT = 250 + GAP_Y
 
 export default withRouter(
   class extends PureComponent {
     state = {
       src: undefined
-    };
+    }
 
     loadDetail = ev => {
       if (ev.target.nodeName === 'A') {
-        return;
+        return
       }
-      let item = this.props.siteData.internalUrl;
+      let item = this.props.siteData.internalUrl
       Router.router.push(
         '/showcase?from=click&item=' + item,
         '/showcase/' + item,
         { shallow: true }
-      );
-    };
+      )
+    }
 
     handleIntersect = entry => {
       if (entry.isIntersecting) {
-        const { highlighted, siteData, isTablet } = this.props;
+        const { highlighted, siteData, isTablet } = this.props
 
-        let useLargeThumbnail = highlighted && !isTablet;
-        let src = siteData.src.replace('/showcases/', '/showcase-thumbnails/');
+        let useLargeThumbnail = highlighted && !isTablet
+        let src = siteData.src.replace('/showcases/', '/showcase-thumbnails/')
 
         if (useLargeThumbnail) {
-          src = src.replace(/\.jpg/, '@2x.jpg');
+          src = src.replace(/\.jpg/, '@2x.jpg')
         }
 
-        this.setState({ src });
+        this.setState({ src })
       }
-    };
+    }
 
     render() {
-      const { highlighted, siteData, flex, isTablet } = this.props;
-      const { src } = this.state;
+      const { highlighted, siteData, flex, isTablet } = this.props
+      const { src } = this.state
 
       return (
         <IObserver once onIntersect={this.handleIntersect} rootMargin="20%">
@@ -136,7 +136,7 @@ export default withRouter(
             `}</style>
           </div>
         </IObserver>
-      );
+      )
     }
   }
-);
+)

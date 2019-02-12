@@ -1,16 +1,16 @@
-import NativeLink from 'next/link';
+import NativeLink from 'next/link'
 
 export const GenericLink = props => {
   if (props.href.startsWith('/') && !props.href.startsWith('/docs')) {
-    return <InternalLink {...props} />;
+    return <InternalLink {...props} />
   }
 
   if (props.href.includes('@') || props.href.startsWith('#')) {
-    return <AnchorLink {...props} />;
+    return <AnchorLink {...props} />
   }
 
-  return <ExternalLink {...props} />;
-};
+  return <ExternalLink {...props} />
+}
 
 export const InternalLink = ({ href, as, children, error = false }) => (
   <NativeLink prefetch href={href} as={as}>
@@ -29,7 +29,7 @@ export const InternalLink = ({ href, as, children, error = false }) => (
       `}</style>
     </a>
   </NativeLink>
-);
+)
 
 export const AnchorLink = ({ href, onClick, children }) => (
   <a href={href} onClick={onClick}>
@@ -50,7 +50,7 @@ export const AnchorLink = ({ href, onClick, children }) => (
       `}
     </style>
   </a>
-);
+)
 
 export const ExternalLink = ({ href, children }) => (
   <a href={href} target="_blank" rel="noopener noreferrer">
@@ -65,4 +65,4 @@ export const ExternalLink = ({ href, children }) => (
       `}
     </style>
   </a>
-);
+)

@@ -54,4 +54,4 @@ export default ({ inverse }) => (
       </filter>
     </defs>
   </svg>
-);
+)
